@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{377569CD-C83E-4FAD-8343-2ADCFF1F8731}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>DockerServices.Cache.Service</RootNamespace>
     <AssemblyName>DockerServices.Cache.Service</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -31,7 +31,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,17 +49,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bindings.cs" />
     <Compile Include="CacheService.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CacheService.Designer.cs">
       <DependentUpon>CacheService.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsoleLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DockerServices.Cache.Channel.Wcf\DockerServices.Cache.Channel.Wcf.csproj">
+      <Project>{c07365f8-f66d-4769-b7a5-f3c5b00f9466}</Project>
+      <Name>DockerServices.Cache.Channel.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DockerServices.Cache.Channel.ZeroMQ\DockerServices.Cache.Channel.ZeroMQ.csproj">
+      <Project>{2ef46e4a-5316-4ac2-ac69-ff3c8879d870}</Project>
+      <Name>DockerServices.Cache.Channel.ZeroMQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DockerServices.Cache.DTO\DockerServices.Cache.DTO.csproj">
+      <Project>{a80e7e9e-03e4-4c61-9dbe-9a86dc323b24}</Project>
+      <Name>DockerServices.Cache.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DockerServices.Cache.Provider.InMemory\DockerServices.Cache.Provider.InMemory.csproj">
+      <Project>{b44e896c-dfe0-4dab-a016-9340080a048e}</Project>
+      <Name>DockerServices.Cache.Provider.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DockerServices.Cache\DockerServices.Cache.csproj">
+      <Project>{9af2714e-d401-4cbf-bb93-852228ebf8ec}</Project>
+      <Name>DockerServices.Cache</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

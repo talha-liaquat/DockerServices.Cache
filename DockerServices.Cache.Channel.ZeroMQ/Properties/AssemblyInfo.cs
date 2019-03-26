@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DockerServices.Cache.ZeroMQ")]
+[assembly: AssemblyTitle("DockerServices.Cache.Channel.ZeroMQ")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DockerServices.Cache.ZeroMQ")]
+[assembly: AssemblyProduct("DockerServices.Cache.Channel.ZeroMQ")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d034a550-ab2a-45f4-ad61-5695390ea807")]
+[assembly: Guid("2ef46e4a-5316-4ac2-ac69-ff3c8879d870")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D034A550-AB2A-45F4-AD61-5695390EA807}</ProjectGuid>
+    <ProjectGuid>{A80E7E9E-03E4-4C61-9DBE-9A86DC323B24}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DockerServices.Cache.ZeroMQ</RootNamespace>
-    <AssemblyName>DockerServices.Cache.ZeroMQ</AssemblyName>
+    <RootNamespace>DockerServices.Cache.DTO</RootNamespace>
+    <AssemblyName>DockerServices.Cache.DTO</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

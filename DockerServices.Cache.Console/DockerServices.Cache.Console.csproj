@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9AF2714E-D401-4CBF-BB93-852228EBF8EC}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DockerServices.Cache</RootNamespace>
-    <AssemblyName>DockerServices.Cache</AssemblyName>
+    <ProjectGuid>{E2B37A24-ACA4-4F5E-B36F-A39ED9E73896}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DockerServices.Cache.Console</RootNamespace>
+    <AssemblyName>DockerServices.Cache.Console</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,8 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,19 +45,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfiguration.cs" />
-    <Compile Include="Exceptions\ItemNotFoundException.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="ICacheChannel.cs" />
-    <Compile Include="ICacheProvider.cs" />
-    <Compile Include="IConfiguration.cs" />
-    <Compile Include="ILogger.cs" />
+    <Compile Include="Bindings.cs" />
+    <Compile Include="ConsoleLogger.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DockerServices.Cache.Channel.Wcf\DockerServices.Cache.Channel.Wcf.csproj">
+      <Project>{c07365f8-f66d-4769-b7a5-f3c5b00f9466}</Project>
+      <Name>DockerServices.Cache.Channel.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DockerServices.Cache.Channel.ZeroMQ\DockerServices.Cache.Channel.ZeroMQ.csproj">
+      <Project>{2ef46e4a-5316-4ac2-ac69-ff3c8879d870}</Project>
+      <Name>DockerServices.Cache.Channel.ZeroMQ</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DockerServices.Cache.DTO\DockerServices.Cache.DTO.csproj">
       <Project>{a80e7e9e-03e4-4c61-9dbe-9a86dc323b24}</Project>
       <Name>DockerServices.Cache.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DockerServices.Cache.Provider.InMemory\DockerServices.Cache.Provider.InMemory.csproj">
+      <Project>{b44e896c-dfe0-4dab-a016-9340080a048e}</Project>
+      <Name>DockerServices.Cache.Provider.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DockerServices.Cache\DockerServices.Cache.csproj">
+      <Project>{9af2714e-d401-4cbf-bb93-852228ebf8ec}</Project>
+      <Name>DockerServices.Cache</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
