@@ -23,14 +23,12 @@ namespace DockerServices.Cache.Service
 
             var cacheService = kernel.Get<ICacheChannel>();
 
-            //ServiceBase[] ServicesToRun;
-            //ServicesToRun = new ServiceBase[]
-            //{
-            //    new CacheService()
-            //};
-            //ServiceBase.Run(ServicesToRun);
-
-            new CacheService().RunAsConsole(null);
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                new CacheService()
+            };
+            ServiceBase.Run(ServicesToRun);
         }
     }
 }

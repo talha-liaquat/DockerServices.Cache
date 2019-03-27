@@ -1,4 +1,5 @@
-﻿using DockerServices.Cache.Channel.ZeroMQ;
+﻿using DockerServices.Cache.Channel.Wcf;
+using DockerServices.Cache.Channel.ZeroMQ;
 using DockerServices.Cache.Provider.InMemory;
 using Ninject.Modules;
 using System;
@@ -15,7 +16,7 @@ namespace DockerServices.Cache.Console
         {
             Bind<ICacheProvider>().To<InMemoryProvider>();
 
-            Bind<ICacheChannel>().To<ZeroMQChannel>();
+            Bind<ICacheChannel>().To<WcfChannel>();
 
             Bind<IConfiguration>().To<AppConfiguration>();
 
